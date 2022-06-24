@@ -1,6 +1,7 @@
 def InputProcesser(number_of_choices, check = False):
     range_flag = False
     check_flag = False
+    inline = 0
     while True:
         inline = int(input())
         if inline <= number_of_choices:
