@@ -27,8 +27,8 @@ def InputProcesser(choices_id, check = False):
     inline = 0
     while True:
         print(">>")
-        inline = int(input())
-        if inline in choices_id:
+        inline = input()
+        if inline in list(map(str, choices_id)):
             range_flag = True
         else:
             print("この値は対応していません")
@@ -37,18 +37,18 @@ def InputProcesser(choices_id, check = False):
         if check == False:
             check_flag = True
         else:
-            print(str(inline)+"本当によろしいですか?(y/n)")
-            ans = input()
-            if ans in ["y", "Y", "yes", "YES"]:
-                check_flag = True
-            elif ans in ["n", "N", "no", "NO"]:
-                continue
-            else:
-                print("この値は対応していません")
-                continue
+            while True:
+                print(str(inline)+":"+"本当によろしいですか?(y/n)")
+                ans = input()
+                if ans in ["y", "Y", "yes", "YES"]:
+                    check_flag = True
+                    break
+                elif ans in ["n", "N", "no", "NO"]:
+                    break
+                else:
+                    print("この値は対応していません")
         if range_flag and check_flag:
             break
     return inline
 
-def CallCondition(json_data, id):
-    
+##def CallCondition(json_data, id):
