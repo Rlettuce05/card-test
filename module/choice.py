@@ -20,6 +20,7 @@ def InputProcesser(number_of_choices, check = False):
     check_flag = False
     inline = 0
     while True:
+        print(">>")
         inline = int(input())
         if inline <= number_of_choices:
             range_flag = True
@@ -42,5 +43,3 @@ def InputProcesser(number_of_choices, check = False):
         if range_flag and check_flag:
             break
     return inline
-
-    def CheckCondition(id, )
