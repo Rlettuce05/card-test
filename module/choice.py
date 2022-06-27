@@ -1,4 +1,5 @@
 import json
+from msilib.schema import Condition
 
 def choice(json_file_pass, key):
     json_data = json.load(open(json_file_pass, "r", encoding="utf-8_sig"))
@@ -9,10 +10,9 @@ def choice(json_file_pass, key):
         check = False
     else:
         print("An error occurred: json file is not correct!!")
-    json_data = json_data[key]["choices"]
-    number_of_choices = len(json_data)
+    number_of_choices = len(json_data[key]["choices"])
     for i in range(number_of_choices):
-        outline = str(i) + ": " + json_data[i]
+        outline = str(json_data[key]["choices"][i]["id"]) + ": " + json_data[key]["choices"][i]["name"]
         print(outline)
     return [number_of_choices, check]
 
