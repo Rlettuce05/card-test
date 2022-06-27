@@ -51,4 +51,9 @@ def InputProcesser(choices_id, check = False):
             break
     return inline
 
-##def CallCondition(json_data, id):
+def CallCondition(json_data, id_):
+    condition = ""
+    for i in range(len(json_data)):
+        if json_data[i]["id"] == id_:
+            condition = json_data[i]["condition"]
+    return condition
