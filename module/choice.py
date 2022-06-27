@@ -1,17 +1,21 @@
 import json
 
-def choice(json_file_pass, key):
+def JsonOpen(json_file_pass, key):
     json_data = json.load(open(json_file_pass, "r", encoding="utf-8_sig"))
-    check = json_data[key]["check"]
+    json_data = json_data[key]
+    return json_data
+
+def choice(json_data):
+    check = json_data["check"]
     if check == "True":
         check = True
     elif check == "False":
         check = False
     else:
         print("An error occurred: json file is not correct!!")
-    number_of_choices = len(json_data[key]["choices"])
+    number_of_choices = len(json_data["choices"])
     for i in range(number_of_choices):
-        outline = str(json_data[key]["choices"][i]["id"]) + ": " + json_data[key]["choices"][i]["name"]
+        outline = str(json_data["choices"][i]["id"]) + ": " + json_data["choices"][i]["name"]
         print(outline)
     return [number_of_choices, check]
 
