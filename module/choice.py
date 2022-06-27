@@ -1,5 +1,4 @@
 import json
-from msilib.schema import Condition
 
 def choice(json_file_pass, key):
     json_data = json.load(open(json_file_pass, "r", encoding="utf-8_sig"))
@@ -43,3 +42,5 @@ def InputProcesser(number_of_choices, check = False):
         if range_flag and check_flag:
             break
     return inline
+
+    def CheckCondition(id, )
