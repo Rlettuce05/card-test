@@ -13,11 +13,11 @@ def choice(json_data):
         check = False
     else:
         print("An error occurred: json file is not correct!!")
-    number_of_choices = len(json_data["choices"])
     choices_id = []
-    for i in range(number_of_choices):
-        outline = str(json_data["choices"][i]["id"]) + ": " + json_data["choices"][i]["name"]
-        choices_id.append(json_data[i]["id"])
+    for i in json_data["choices"]:
+        json_data_ = json_data["choices"][i]
+        outline = str(json_data_["id"]) + ": " + json_data_["name"]
+        choices_id.append(json_data_["id"])
         print(outline)
     return [choices_id, check]
 
@@ -28,7 +28,8 @@ def InputProcesser(choices_id, check = False):
     while True:
         print(">>")
         inline = input()
-        if inline in list(map(str, choices_id)):
+        choices_id = list(map(str, choices_id))
+        if inline in choices_id:
             range_flag = True
         else:
             print("この値は対応していません")
