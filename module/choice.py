@@ -1,6 +1,5 @@
-import json
-
 def JsonOpen(json_file_pass, key):
+    import json
     json_data = json.load(open(json_file_pass, "r", encoding="utf-8_sig"))
     json_data = json_data[key]
     return json_data
