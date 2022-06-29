@@ -31,6 +31,7 @@ def InputProcesser(choices_id, check = False):
         choices_id = list(map(str, choices_id))
         if inline in choices_id:
             range_flag = True
+            inline = int(inline)
         else:
             print("この値は対応していません")
             continue
@@ -58,3 +59,10 @@ def CallCondition(json_data, id_):
         if json_data[i]["id"] == id_:
             condition = json_data[i]["condition"]
     return condition
+
+#concatnate test
+json_file = JsonOpen("./test.json", "buy")
+a = choice(json_file)
+print(a)
+inline = InputProcesser(a[0], a[1])
+CallCondition(json_file, inline)
