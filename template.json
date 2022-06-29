@@ -1,0 +1,26 @@
+{
+    "buy": {
+		"key": "buy",
+        "check": "True",
+        "choices": {
+            "agriculture": {
+                "id": 1,
+				"key": "agriculture",
+				"name": "農業",
+                "conditions": ""
+            },
+			"fishing": {
+				"id": 2,
+				"key": "fishing",
+				"name": "漁業",
+				"conditions": "test1"
+			},
+			"forestry": {
+				"id": 3,
+				"key": "forestry",
+				"name": "林業",
+				"conditions": "test2"
+			}
+        }
+    }
+}
