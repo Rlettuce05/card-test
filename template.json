@@ -13,13 +13,13 @@
 				"id": 2,
 				"key": "fishing",
 				"name": "漁業",
-				"conditions": "test1"
+				"conditions": "money >= 200"
 			},
 			"forestry": {
 				"id": 3,
 				"key": "forestry",
 				"name": "林業",
-				"conditions": "test2"
+				"conditions": "money >= 100"
 			}
         }
     }
