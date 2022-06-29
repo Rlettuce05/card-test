@@ -55,14 +55,8 @@ def InputProcesser(choices_id, check = False):
 
 def CallCondition(json_data, id_):
     condition = ""
-    for i in range(len(json_data)):
-        if json_data[i]["id"] == id_:
-            condition = json_data[i]["condition"]
+    for i in json_data["choices"]:
+        json_data_ = json_data["choices"][i]
+        if json_data_["id"] == id_:
+            condition = json_data_["conditions"]
     return condition
-
-#concatnate test
-json_file = JsonOpen("./test.json", "buy")
-a = choice(json_file)
-print(a)
-inline = InputProcesser(a[0], a[1])
-CallCondition(json_file, inline)
