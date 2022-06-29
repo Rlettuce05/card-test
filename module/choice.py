@@ -59,3 +59,20 @@ def CallCondition(json_data, id_):
         if json_data_["id"] == id_:
             condition = json_data_["conditions"]
     return condition
+
+def CheckCondition(status_data, condition_data):
+    condition = False
+    if condition_data == "":
+        condition = True
+    else:
+        condition_data = condition_data.split(" ")
+        status_data = status_data["status"][condition_data[0]]["value"]
+        if condition_data[1] == ">=":
+            condition = status_data >= int(condition_data[2])
+        elif condition_data[1] == "<=":
+            condition = status_data <= int(condition_data[2])
+        elif condition_data[1] == "==":
+            condition = status_data == int(condition_data[2])
+        elif condition_data[1] == "!=":
+            condition = status_data != int(condition_data[2])
+    return condition
