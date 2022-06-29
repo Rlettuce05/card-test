@@ -5,7 +5,7 @@ def JsonOpen(json_file_pass, key):
     json_data = json_data[key]
     return json_data
 
-def choice(json_data):
+def Choice(json_data):
     check = json_data["check"]
     if check == "True":
         check = True
