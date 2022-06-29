@@ -17,3 +17,11 @@ class status:
         if status:
             for i in range(len(status)):
                 self.status_data["status"][status[i][0]] = status[i][1]
+
+    def Add(self, *status):
+        if status:
+            for i in range(len(status)):
+                self.status_data["status"][status[i][0]] = status[i][1]
+    
+    def ChangeStates(self, key, value):
+        self.status_data["status"][key] = value
