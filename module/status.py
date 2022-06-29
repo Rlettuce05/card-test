@@ -16,4 +16,4 @@ class status:
         self.status_data = {"status": {}}
         if status:
             for i in range(len(status)):
-                self.status_data["status"].update((status[0],status[1]))
+                self.status_data["status"][status[i][0]] = status[i][1]
