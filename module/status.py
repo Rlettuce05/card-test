@@ -28,3 +28,6 @@ class status:
     
     def ChangeStates(self, key, value):
         self.status_data["status"][key] = value
+
+    def CallStatusData(self):
+        return self.status_data
