@@ -27,7 +27,7 @@ class status:
             j = 0
             idlist = []
             for i in self.status_data["status"]:
-                if i["id"] != j:
+                if self.status_data["status"][i]["id"] != j:
                     idlist.append(j)
                     if len(idlist) == len(status):
                         break
