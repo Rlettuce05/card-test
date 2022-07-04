@@ -48,7 +48,7 @@ class status:
         self.status_data.pop(key)
     
     def ChangeStates(self, key, value):
-        self.status_data["status"][key] = value
+        self.status_data["status"][key]["value"] = value
 
     def CallStatusData(self):
         return self.status_data
