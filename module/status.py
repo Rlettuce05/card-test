@@ -45,7 +45,7 @@ class status:
                 j = j+1
     
     def Remove(self, key):
-        self.status_data.pop(key)
+        self.status_data["status"].pop(key)
     
     def ChangeStates(self, key, value):
         self.status_data["status"][key]["value"] = value
