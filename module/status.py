@@ -11,17 +11,38 @@ def Load(json_file_pass):
     return json_file
 
 class status:
-
     def __init__(self, *status):
         self.status_data = {"status": {}}
         if status:
+            j = 0
             for i in range(len(status)):
-                self.status_data["status"][status[i][0]] = status[i][1]
+                self.status_data["status"][status[i][0]] = {}
+                self.status_data["status"][status[i][0]]["id"] = j
+                self.status_data["status"][status[i][0]]["value"] = status[i][1]
+                j = j+1
+
 
     def Add(self, *status):
         if status:
+            j = 0
+            idlist = []
+            for i in self.status_data["status"]:
+                if i["id"] != j:
+                    idlist.append(j)
+                    if len(idlist) == len(status):
+                        break
+                    j = j+1
+            if len(idlist) != len(status):
+                while len(idlist) == len(status):
+                    idlist.append(j)
+                    j = j+1
+
+            j = 0
             for i in range(len(status)):
-                self.status_data["status"][status[i][0]] = status[i][1]
+                self.status_data["status"][status[i][0]] = {}
+                self.status_data["status"][status[i][0]]["id"] = idlist[j]
+                self.status_data["status"][status[i][0]]["value"] = status[i][1]
+                j = j+1
     
     def Remove(self, key):
         self.status_data.pop(key)
