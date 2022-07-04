@@ -28,12 +28,17 @@ class status:
             idlist = []
             for i in self.status_data["status"]:
                 if self.status_data["status"][i]["id"] != j:
-                    idlist.append(j)
+                    while self.status_data["status"][i]["id"] != j:
+                        idlist.append(j)
+                        j = j+1
+                        if len(idlist) == len(status):
+                            break
                     if len(idlist) == len(status):
                         break
-                    j = j+1
+                j = j+1
+
             if len(idlist) != len(status):
-                while len(idlist) == len(status):
+                while len(idlist) != len(status):
                     idlist.append(j)
                     j = j+1
 
