@@ -57,3 +57,6 @@ class status:
 
     def CallStatusData(self):
         return self.status_data
+
+    def LoadStatusData(self, json_data):
+        self.status_data = json_data
